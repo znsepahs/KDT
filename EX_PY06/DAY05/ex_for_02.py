@@ -23,8 +23,10 @@ print('enumerate() 변환 :', list(enumerate(nums)))
 
 # 인덱스와 원소 데이터 가져오기
 for e in enumerate(nums):
-    e[0[0]]=int(e[1])
+    nums[e[0]]=int(e[1])
+    print(e)
 
 # 언팩킹으로 원소 데이터 가져오기
 for idx, data in enumerate(nums):
     nums[idx]=int(data)
+    print(idx, data)
