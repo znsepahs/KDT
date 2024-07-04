@@ -5,7 +5,7 @@
 # [중첩반복문] 내부 반복문 종료 시 외부 반복문 종료
 # - 내부 반복문 종료여부를 변수 저장
 # - 외부 반복문에서는 내부 반복문이 종료되면 함께 종료
-isBreak=False
+isBreak=False #isBreak라는 불린타입 변수를 생성.
 for d in range(2,10):
     print(f'\n[{d}단]',end='  ')
     for n in range(1,10):
