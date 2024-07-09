@@ -37,4 +37,4 @@ print(f' jumsu 키 오름차순정렬 : {sorted(jumsu)}')
 
 print(f' jumsu 값 오름차순정렬 : {sorted(jumsu.items())}')
 print(f' jumsu 값 오름차순정렬 : {sorted(jumsu.items(),key=lambda x:x[1])}')
-print(f' jumsu 값 오름차순정렬 : {sorted(jumsu.items(),key=lambda x:x[1],reverse=True)}')
+print(f' jumsu 값 내림차순정렬 : {sorted(jumsu.items(),key=lambda x:x[1],reverse=True)}')
