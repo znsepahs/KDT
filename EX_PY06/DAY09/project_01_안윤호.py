@@ -62,7 +62,7 @@ while True:
         elif info=='2':
             print("'원석'은 경기 중반부터 가속이 됩니다.")
         elif info=='3':
-            print("'치영'은 후반부의 매우 빠릅니다.")
+            print("'치영'은 후반부에 매우 빠릅니다.")
         elif info=='4':
             print("'알중'은 전 구간에서 기복이 심합니다.")
         elif info=='5':
