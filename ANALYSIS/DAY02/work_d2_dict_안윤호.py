@@ -1,88 +1,85 @@
-import pandas as pd
-
-d1={'Seoul':['South Korea','Asia','9655000'],
-    'Tokyo':['Japan','Asia','14110000'],
-    'Beijing':['China','Asia','21540000'],
-    'London':['United Kingdom','Europe','14800000'],
-    'Barlin':['Germany','Europe','3426000'],
-    'Mexico City':['Mexico','America','21200000']}
-
-df=pd.DataFrame(d1)
+#----------------------------------------------------------------------------
+# 메뉴 출력용 사용자 함수 만들기
+# 브레이크 조건이 6을 입력받는 while 반복문
+# 필요한 데이터를 변수로 저장
+# 요구하는 데이터를 프린트하기
+#----------------------------------------------------------------------------
 
 def print_menu():
-    print(f'{"▼":▼^19}')
-    print(f'{"▲":▲^19}')
+    print('-----------------------------------------')
+    print('1. 전체 데이터 출력')
+    print('2. 수도 이름 오름차순 출력')
+    print('3. 모든 도시의 인구수 내림차순 출력')
+    print('4. 특정 도시의 정보 출력')
+    print('5. 대륙별 인구수 계산 및 출력')
+    print('6. 프로그램 종료')
+    print('-----------------------------------------')
 
-isBreak=False
+data={'수도이름':['Seoul','Tokyo','Beijing','London','Berlin','Mexico City'],
+    '국가명':['South Korea','Japan','China','United Kingdom','Germany','Mexico'],
+    '대륙':['Asia','Asia','Asia','Europe','Europe','America'],
+    '인구수':['9655000','14110000','21540000','14800000','3426000','21200000']}
+
+data1={'Seoul':['South Korea','Asia','9655000'],
+       'Tokyo':['Japan','Asia','14110000'],
+       'Beijing':['China','Asia','21540000'],
+       'London':['United Kingdom','Europe','14800000'],
+       'Berlin':['Germany','Europe','3426000'],
+       'Mexico City':['Mexico','America','21200000']}
+
+data2={'Seoul':9655000,
+       'Tokyo':14110000,
+       'Beijing':21540000,
+       'London':14800000,
+       'Berlin':3426000,
+       'Mexico City':21200000}
+
+need1=list(data1.keys())
+need1.sort()
+
+need2=sorted(data2.items(),key=lambda x:x[1],reverse=True)
+
 while True:
-    if isBreak: break
-    while True:
-        print_menu()
-        info=input("메뉴를 입력하세요.")
+    print_menu()
+    info=input("메뉴를 입력하세요.")
 
-        if info=='1':
-            print(df)
-        elif info=='2':
-            print("'원석'은 경기 중반부터 가속이 됩니다.")
-        elif info=='3':
-            print("'치영'은 후반부에 매우 빠릅니다.")
-        elif info=='4':
-            print("'알중'은 전 구간에서 기복이 심합니다.")
-        elif info=='5':
-            print("'용병'은 모든것이 수수께끼인 인물입니다.")
-        elif info=='6':
-            print("선수를 선택하고 경기를 시작합니다.")
-            break
-        else: print("존재하지 않는 항목입니다. 입력을 확인해주세요.")
+    a=0
+    b=0
+    c=0
+    if info=='1':
+        for _ in range(6):
+            _+=a
+            print('[',_+1,']',data['수도이름'][_],':','[',data['국가명'][_],' ,',data['대륙'][_],' ,',data['인구수'][_],']',sep='')
 
-    while True:
-        info=input("메뉴를 입력하세요.")
+    elif info=='2':
+        for _ in range(6):
+            _+=b
+            print('[',_+1,']',need1[_],':',data1[need1[_]],sep='')
 
-        if info=='1':
-            print("'1태웅'을 선택하셨습니다. 경기를 시작합니다.")
-            break
-        elif info=='2':
-            print("'2원석'을 선택하셨습니다. 경기를 시작합니다.")
-            break
-        elif info=='3':
-            print("'3치영'을 선택하셨습니다. 경기를 시작합니다.")
-            break
-        elif info=='4':
-            print("'4알중'을 선택하셨습니다. 경기를 시작합니다.")
-            break
-        elif info=='5':
-            print("'5용병'을 선택하셨습니다. 경기를 시작합니다.")
-            break
-        else: print("존재하지 않는 항목입니다. 입력을 확인해주세요.")
+    elif info=='3':
+        for _ in range(6):
+            _+=c
+            print('[',_+1,']',need2[_][0],':',need2[_][1],sep='')
 
+    elif info=='4':
+        city_name=input('출력할 도시 이름을 입력하세요: ')
+        if city_name in data['수도이름']:
+            print(f'도시:{city_name} \n국가:{data1[city_name][0]} 대륙:{data1[city_name][1]} 인구수:{data1[city_name][2]}')
 
-    print('▶'*105)
-    r1={"1태웅":run(66,100),"2원석":run(1,34),"3치영":run(10,34),"4알중":run(3,90),"5용병":run(50,60)}
-    print(f' 초반부 점수 : {sorted(r1.items(),key=lambda x:x[1],reverse=True)}')
-    print('▶'*105)
-    print('▶'*105)
-    r2={"1태웅":run(33,60),"2원석":run(60,80),"3치영":run(36,54),"4알중":run(5,87),"5용병":run(31,56)}
-    print(f' 중반부 점수 : {sorted(r2.items(),key=lambda x:x[1],reverse=True)}')
-    print('▶'*105)
-    r1v=list(r1.values())
-    r2v=list(r2.values())
-    fmp={"1태웅":(r1v[0]+r2v[0]),"2원석":(r1v[1]+r2v[1]),"3치영":(r1v[2]+r2v[2]),"4알중":(r1v[3]+r2v[3]),"5용병":(r1v[4]+r2v[4])}
-    print(f' 중반부 결산 : {sorted(fmp.items(),key=lambda x:x[1],reverse=True)}')
-    print('▶'*105)
-    print('▶'*105)
-    r3={"1태웅":run(1,34),"2원석":run(50,70),"3치영":run(70,90),"4알중":run(10,92),"5용병":run(22,72)}
-    print(f' 후반부 점수 : {sorted(r3.items(),key=lambda x:x[1],reverse=True)}')
-    print('▶'*105)
-    fmpv=list(fmp.values())
-    r3v=list(r3.values())
-    finalp={"1태웅":(fmpv[0]+r3v[0]),"2원석":(fmpv[1]+r3v[1]),"3치영":(fmpv[2]+r3v[2]),"4알중":(fmpv[3]+r3v[3]),"5용병":(fmpv[4]+r3v[4])}
-    print('♣'*105)
-    print(f' 최종 결산 : {sorted(finalp.items(),key=lambda x:x[1],reverse=True)}')
-    print('♣'*105)
-    fp=sorted(finalp.items(),key=lambda x:x[1],reverse=True)
-    if info in fp[0][0]: print("★")
-    else : print("아")
+        else: print(f'도시이름: {city_name}은 key에 없습니다.')
 
-    restrt=input("'x'을 입력하면 프로그램을 종료합니다.").strip()
-    if restrt=='x': isBreak=True
-    else : print("처음화면으로 돌아갑니다.")
+    elif info=='5':
+        continent=input('대륙 이름을 입력하세요(Asia, Europe, America): ')
+        if continent == 'Asia':
+            print(f"Seoul: {data1['Seoul'][2]}\nTokyo: {data1['Tokyo'][2]}\nBeijing: {data1['Beijing'][2]}")
+            print(f"Asia 전체 인구수: {int(data1['Seoul'][2])+int(data1['Tokyo'][2])+int(data1['Beijing'][2])}")
+        elif continent == 'Europe':
+            print(f"London: {data1['London'][2]}\nBerlin: {data1['Berlin'][2]}")
+            print(f"Europe 전체 인구수: {int(data1['London'][2])+int(data1['Berlin'][2])}")
+        elif continent == 'America':
+            print(f"Mexico City: {data1['Mexico City'][2]}")
+            print(f"America 전체 인구수: {int(data1['Mexico City'][2])}")
+
+    elif info=='6':
+        print("프로그램을 종료합니다.")
+        break
