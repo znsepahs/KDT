@@ -16,5 +16,5 @@ sql='delete from customer where name=%s'
 curs.execute(sql, '홍길동')
 print('delete 홍길동')
 
-conn.commit() 
+conn.commit()
 conn.close()
