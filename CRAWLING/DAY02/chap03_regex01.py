@@ -83,7 +83,7 @@ else: print('None')
 
 lookahead2=re.search('.+(?=am)','2023-01-26 am 10:00:01')
 print(lookahead2.group())
-# 전방 부정 탐색 (?!): 4자리 숫자 다음에 '-'를 포함하지 안흥면 앞의 문자열 리턴
+# 전방 부정 탐색 (?!): 4자리 숫자 다음에 '-'를 포함하지 않으면 앞의 문자열 리턴
 lookahead3=re.search('\d{4}(?!-)','010-1234-5678')
 print(lookahead3)
 
