@@ -1,7 +1,5 @@
 from urllib.request import Request
 import re
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from urllib.parse import quote
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
