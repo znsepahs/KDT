@@ -5,7 +5,6 @@ from urllib.parse import quote
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from wordcloud import WordCloud
-from konlpy.tag import Okt
 from collections import Counter
 import matplotlib.pyplot as plt
 import platform
