@@ -52,10 +52,8 @@ df=pd.DataFrame(tag_list, columns=['tag'])
 df.to_csv("tag_list.csv", index = False)
 
 #-----------------------------------------------------------------------------------------------------
-# wordcloud 그리기
+# 시각화 - wordcloud
 #-----------------------------------------------------------------------------------------------------
-
-# 한글을 분석하기 위해 font를 한글로 지정
 if platform.system() =='Windows':
     path=r'c:\Windows\Fonts\malgun.ttf'
 
