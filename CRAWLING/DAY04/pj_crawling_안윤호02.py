@@ -60,8 +60,6 @@ SEL_dict = {'OP':[SamEL_list[2],SamEL_list[12],SamEL_list[22]],
 
 SEL_DF=pd.DataFrame(SEL_dict,index=['2021','2022','2023'])
 
-SDS_DF=pd.read_csv('SDS_DF.csv')
-SEL_DF=pd.read_csv('SEL_DF.csv')
 #-----------------------------------------------------------------------------------------------------
 # DF를 csv 파일로 저장
 #-----------------------------------------------------------------------------------------------------
@@ -70,6 +68,10 @@ SEL_DF=pd.read_csv('SEL_DF.csv')
 #-----------------------------------------------------------------------------------------------------
 # 시각화 - 선 그래프 subplot
 #-----------------------------------------------------------------------------------------------------
+
+SDS_DF=pd.read_csv('SDS_DF.csv')
+SEL_DF=pd.read_csv('SEL_DF.csv')
+
 # 삼성에스디에스
 period=range(2021,2024)
 SDS_OP=[SDS_DF.iloc[_,0] for _ in range(3)]
@@ -81,7 +83,7 @@ ax1=plt.subplot(2, 2, 1)
 plt.plot(period,SDS_OP,'bo-',label='영업이익')
 plt.title("[삼성에스디에스 영업이익 2021~2023]")
 plt.xlabel("YEAR")
-plt.ylabel("억원, %")
+plt.ylabel("억원")
 plt.xticks(visible=False)
 plt.legend()
 
@@ -119,10 +121,10 @@ SEL_PBR=[SEL_DF.iloc[_,2] for _ in range(3)]
 SEL_ROE=[SEL_DF.iloc[_,3] for _ in range(3)]
 
 ax1=plt.subplot(2, 2, 1)                
-plt.plot(period,SDS_OP,'bo-',label='영업이익')
+plt.plot(period,SEL_OP,'bo-',label='영업이익')
 plt.title("[삼성전자 영업이익 2021~2023]")
 plt.xlabel("YEAR")
-plt.ylabel("억원, %")
+plt.ylabel("억원")
 plt.xticks(visible=False)
 plt.legend()
 
