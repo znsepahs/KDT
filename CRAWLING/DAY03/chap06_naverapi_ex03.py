@@ -12,8 +12,8 @@ import csv
 
 
 def get_request_url(url):
-    client_id = 'VXpfSHewkhchaLquES2c'
-    client_secret = 'elJITxJyU_'
+    client_id = 'client_id'
+    client_secret = 'client_secret'
 
     req = urllib.request.Request(url)
     req.add_header("X-Naver-Client-Id", client_id)

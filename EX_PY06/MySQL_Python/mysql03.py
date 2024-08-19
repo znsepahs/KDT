@@ -17,7 +17,7 @@ def	create_table(conn, cur):
         print(e)
 
 def	main():
-    conn = pymysql.connect(host='localhost', user='test', password='test1111', db='sqlclass_db', charset='utf8')
+    conn = pymysql.connect(host='localhost', user='id', password='password', db='sqlclass_db', charset='utf8')
 
     cur	= conn.cursor()
 

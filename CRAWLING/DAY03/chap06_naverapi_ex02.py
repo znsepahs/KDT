@@ -3,8 +3,8 @@ import datetime
 import json
 
 def get_request_url(url):
-    client_id="VXpfSHewkhchaLquES2c"
-    client_seceret="elJITxJyU_"
+    client_id="client_id"
+    client_seceret="client_seceret"
 
     req=urllib.request.Request(url)
     req.add_header("X-Naver-Client-Id", client_id)

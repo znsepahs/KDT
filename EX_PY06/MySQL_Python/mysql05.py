@@ -1,6 +1,6 @@
 import pymysql
 
-conn = pymysql.connect(host='localhost', user='test', password='test1111',
+conn = pymysql.connect(host='localhost', user='id', password='password',
                         db='sqlclass_db', charset='utf8')
 curs = conn.cursor()
 sql = """insert	into customer(name, category, region)
