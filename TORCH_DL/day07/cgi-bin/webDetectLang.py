@@ -11,6 +11,8 @@ from pydoc import html # html 코드 관련 : html을 객체로 처리?
 SCRIPT_MODE = True    # Jupyter Mode : False, WEB Mode : True
 cgitb.enable()         # Web상에서 진행상태 메시지를 콘솔에서 확인할수 있도록 하는 기능
 
+# 모델 파일명
+MODEL_FILE='./model'
 #-----------------------------------------------------------
 # 사용자 정의 함수
 #-----------------------------------------------------------
@@ -66,7 +68,7 @@ def detectLang(text):
     print(f'freq => {freq}')
     
     # 판별요청 & 결과 반환
-    result = 0#langModel.predict([freq])
+    result =langModel.predict([freq])
     langDict = {'en':'영어', 'ft':'프랑스어', 'id': '인도네시아어', 'tl':'타갈로그어'}
     
     return langDict[result[0]]
@@ -80,11 +82,11 @@ if SCRIPT_MODE:
 
 # (2) 모델 로딩
 if SCRIPT_MODE:
-    pklfile = os.path.dirname(__file__)+ '/lang.pkl' # 웹상에서는 절대경로만
+    pklfile = os.path.dirname(__file__)+ MODEL_FILE # 웹상에서는 절대경로만
 else:
-    pklfile = './lang.pkl'
+    pklfile = MODEL_FILE
     
-#langModel = joblib.load(pklfile)
+langModel = joblib.load(pklfile)
 
 # (3) WEB 사용자 입력 데이터 처리
 # (3-1) HTML 코드에서 사용자 입력 받는 form 태크 영역 객체 가져오기
