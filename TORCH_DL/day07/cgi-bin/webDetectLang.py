@@ -9,7 +9,7 @@ from pydoc import html # html 코드 관련 : html을 객체로 처리?
 
 # 동작관련 전역 변수----------------------------------
 SCRIPT_MODE = True    # Jupyter Mode : False, WEB Mode : True
-cgitb.enable()         # Web상에서 진행상태 메시지를 콘솔에서 확인할수 있도록 하는 기능
+cgitb.enable()        # Web상에서 진행상태 메시지를 콘솔에서 확인할수 있도록 하는 기능
 
 # 모델 파일명
 MODEL_FILE='./model'
