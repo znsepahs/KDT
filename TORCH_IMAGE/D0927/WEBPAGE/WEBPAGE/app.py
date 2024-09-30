@@ -38,8 +38,8 @@ def upload_file():
 
         best_model = models.vgg19_bn(weights=VGG19_BN_Weights.IMAGENET1K_V1) # 전이학습 모델 불러오기
         best_model.classifier = nn.Linear(in_features=25088, out_features=5) # 전결합층 입력 출력 변경
-        pth_PATH = r'C:\WorkSpace\KDT\TORCH_IMAGE\D0927\WEBPAGE\WEBPAGE'
-        best_model.load_state_dict(torch.load(pth_PATH, weights_only=True), map_location=torch.device('cpu')) # 모델에 가중치 설정
+        pth_PATH = r'C:\WorkSpace\KDT\TORCH_IMAGE\D0927\WEBPAGE\WEBPAGE\best_model_epoch_5.pth'
+        best_model.load_state_dict(torch.load(pth_PATH, map_location=torch.device('cpu'))) # 모델에 가중치 설정
 
         transform = transforms.Compose([
             transforms.Resize((224, 224)),
