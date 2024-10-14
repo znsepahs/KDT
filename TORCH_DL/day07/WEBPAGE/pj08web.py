@@ -34,7 +34,7 @@ def upload_file():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(file_path)  # 파일 저장
 
-        name_dict = {0 : 'cane', 1 : 'cavallo', 2: 'elefante' , 3 : 'farfalla', 4 : 'gallina', 5 : 'gatto', 6 : 'mucca', 7: 'pecora' , 8 : 'ragno', 9 : 'scoiattolo'}
+        name_dict = {0 : 'cane', 1 : 'cavallo', 2: 'elefante' , 3 : 'farfalla', 4 : 'gallina', 5 : 'gatto', 6 : 'mucca', 7 : 'pecora' , 8 : 'ragno', 9 : 'scoiattolo'}
 
         best_model = models.vgg19_bn(weights=VGG19_BN_Weights.IMAGENET1K_V1) # 전이학습 모델 불러오기
         best_model.classifier = nn.Linear(in_features=25088, out_features=10) # 전결합층 입력 출력 변경
