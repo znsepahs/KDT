@@ -14,7 +14,7 @@ from KDTModule import *
 
 app = Flask(__name__)
 
-# 업로드할 이미지 저장 경로
+# 업로드할 파일 저장 경로
 UPLOAD_FOLDER = r'C:\WorkSpace\KDT\TORCH_IMAGE\D0927\WEBPAGE\WEBPAGE\uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
