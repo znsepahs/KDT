@@ -1,0 +1,7 @@
+p{background-color: yellow}
+#secondP{background-color: rgba(85, 255, 0, 0.785);
+color:blue;
+font-weight:bold;}
+body{align-content: center;
+background-image: url(../../../LocalData/pj_08_DL/raw_image/gatto/3.jpeg);}
+.mon{background-color: rgba(255, 0, 170, 0.785)}
