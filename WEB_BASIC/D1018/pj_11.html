@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 웹 연동</title>
+    <!-- 내부 CSS 설정 -->
+    <style>
+        *{text-align: center;}
+        html{height: 100%;}
+        body{height: 100vh; width: 100vw;}
+
+        #header, header{
+            background-color: rgb(255, 197, 80);
+            height: 20vh;}
+
+        #menu, nav{
+            background-color: rgb(255, 235, 80);
+            height: 70vh;
+            width: 20vw;
+            float: left}
+
+        #center, section{
+            background-color: rgb(255, 251, 240);
+            display: inline-block;
+            height: 70vh;
+            width: 60vw;}
+
+        #side, aside{
+            background-color: rgb(255, 220, 80);
+            height: 70vh;
+            width: 20vw;
+            float: right;}
+
+        #footer, footer{
+            background-color: rgb(200, 192, 180);
+            height: 10vh;
+            clear: both;}
+    </style>
+</head>
+<body>
+   <header>
+        <h1>MY PROJECT</h1>
+    </header>
+   <nav>
+    <ul>
+        <li><a href="http://127.0.0.1:5002">이미지 관련 프로젝트 모음</a></li>
+        <li><a href="http://localhost:8080/cgi-bin/webDetectText.py">자연어 프로젝트</a></li>
+
+    </ul>
+   </nav>
+   <section>
+    <div id="dl">
+        이미지 관련
+    </div>
+    <div id="nlp">
+        자연어
+    </div>
+   </section>
+   <aside>SIDE</aside>
+   <footer>FOOTER</footer>
+</body>
+</html>

@@ -38,7 +38,7 @@ def upload_file():
 
         best_model = models.vgg19_bn(weights=VGG19_BN_Weights.IMAGENET1K_V1) # 전이학습 모델 불러오기
         best_model.classifier = nn.Linear(in_features=25088, out_features=5) # 전결합층 입력 출력 변경
-        pth_PATH = r'C:\WorkSpace\KDT\TORCH_IMAGE\D0927\WEBPAGE\WEBPAGE\best_model_epoch_5.pth'
+        pth_PATH = r'C:\WorkSpace\LocalData\pj_09_DL\model\best_model_epoch_5.pth'
         best_model.load_state_dict(torch.load(pth_PATH, map_location=torch.device('cpu'))) # 모델에 가중치 설정
 
         transform = transforms.Compose([
@@ -52,7 +52,7 @@ def upload_file():
         input_tensor = tensor_image.unsqueeze(0)
         best_model.eval()
         pred = torch.argmax(best_model(input_tensor), dim=1).item()
-        pred_answer = name_dict[pred]      
+        pred_answer = name_dict[pred]     
 
         background_image = f'../static/{pred_answer}.jpg'
 
@@ -61,4 +61,5 @@ def upload_file():
     return redirect(request.url)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # IP와 포트를 원하는 값으로 설정 (예: 0.0.0.0:8080)
+    app.run(host='127.0.0.1', port=5003)

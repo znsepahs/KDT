@@ -61,4 +61,5 @@ def upload_file():
     return redirect(request.url)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # IP와 포트를 원하는 값으로 설정 (예: 0.0.0.0:8080)
+    app.run(host='127.0.0.1', port=5002)

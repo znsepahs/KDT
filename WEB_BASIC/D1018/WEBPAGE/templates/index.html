@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 분류</title>
+    <style>
+        body {
+            background-image: url('../static/index_image.jpg');
+            background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* 배경이 투명한 검정 */
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>이미지 분류</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="model_type">모델 선택:</label>
+            <select id="model_type" name="model_type">
+                <option value="model1">동물 분류 (10가지 동물)</option>
+                <option value="model2">짱구는 못말려 캐릭터 분류</option>
+            </select>
+            <br><br>
+            <input type="file" name="file" required>
+            <br><br>
+            <input type="submit" value="업로드">
+        </form>
+    </div>
+</body>
+</html>
