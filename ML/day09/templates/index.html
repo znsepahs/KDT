@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNN Model Prediction</title>
+    <style>
+        body {
+            background-image: url('../static/index_image.png');
+            background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+            color: black;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* 배경이 투명한 검정 */
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>KNN 모델을 이용한 심장병 예측</h1>
+    <form action="/predict" method="POST">
+        <!-- 피처 입력 필드 -->
+        <label for="BMI">BMI:</label>
+        <input type="text" id="BMI" name="feature" required><br>
+
+        <label for="Smoking">Smoking:</label>
+        <input type="text" id="Smoking" name="feature" required><br>
+
+        <label for="AlcoholDrinking">Alcohol Drinking:</label>
+        <input type="text" id="AlcoholDrinking" name="feature" required><br>
+
+        <label for="Stroke">Stroke:</label>
+        <input type="text" id="Stroke" name="feature" required><br>
+
+        <label for="PhysicalHealth">Physical Health:</label>
+        <input type="text" id="PhysicalHealth" name="feature" required><br>
+
+        <label for="MentalHealth">Mental Health:</label>
+        <input type="text" id="MentalHealth" name="feature" required><br>
+
+        <label for="DiffWalking">Difficulty Walking:</label>
+        <input type="text" id="DiffWalking" name="feature" required><br>
+
+        <label for="Sex">Sex:</label>
+        <input type="text" id="Sex" name="feature" required><br>
+
+        <label for="AgeCategory">Age Category:</label>
+        <input type="text" id="AgeCategory" name="feature" required><br>
+
+        <label for="Race">Race:</label>
+        <input type="text" id="Race" name="feature" required><br>
+
+        <label for="Diabetic">Diabetic:</label>
+        <input type="text" id="Diabetic" name="feature" required><br>
+
+        <label for="PhysicalActivity">Physical Activity:</label>
+        <input type="text" id="PhysicalActivity" name="feature" required><br>
+
+        <label for="GenHealth">General Health:</label>
+        <input type="text" id="GenHealth" name="feature" required><br>
+
+        <label for="SleepTime">Sleep Time:</label>
+        <input type="text" id="SleepTime" name="feature" required><br>
+
+        <label for="Asthma">Asthma:</label>
+        <input type="text" id="Asthma" name="feature" required><br>
+
+        <label for="KidneyDisease">Kidney Disease:</label>
+        <input type="text" id="KidneyDisease" name="feature" required><br>
+
+        <label for="SkinCancer">Skin Cancer:</label>
+        <input type="text" id="SkinCancer" name="feature" required><br>
+
+        <button type="submit">예측</button>
+    </form>
+</body>
+</html>
