@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyWeb</title>
+    <!-- 외부 css 파일 설정-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+
 </head>
-    <body style='background-color:green;'></body><h1><marquee behavior>HELLO</marquee behavior></h1>
-</body>
+    <body>
+        GOOD LUCK
+        <img src="{{url_for('static', filename='image/castle_02.jpeg')}}"><br>
+        <ul>
+            <li>
+                <a href="/info">INFO</a>
+            </li>
+        </ul>
+    </body>
 </html>
