@@ -23,8 +23,8 @@ def printList():
     return render_template('question_list.html', question_list=q_list)
 
 # http://localhost:5000/ URL 처리 라우팅 함수 정의
-@mainBP.route("/qdetail/<int:qid>")
-def questionItem(qid):
+@mainBP.route("/qdetail/<int:question_id>/")
+def questionItem(question_id):
     # DB에서 조회한 1개의 question 인스턴스를 전달
-    q=Question.query.get(qid)
-    return render_template('question_detail.html', question=q)
+    question=Question.query.get_or_404(question_id)
+    return render_template('question_detail.html', question=question)
