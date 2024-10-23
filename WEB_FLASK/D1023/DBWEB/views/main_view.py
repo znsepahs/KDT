@@ -3,8 +3,9 @@
 # - 파일명 : main_view.py
 #--------------------------------------------------------------------------
 # 모듈로딩
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for
 from DBWEB.models.models import Question
+from werkzeug.utils import redirect
 
 # Blueprint 인스턴스 생성
 mainBP=Blueprint('MAIN', import_name=__name__, url_prefix='/', template_folder='templates')
@@ -12,7 +13,7 @@ mainBP=Blueprint('MAIN', import_name=__name__, url_prefix='/', template_folder='
 # http://localhost:5000/ URL 처리 라우팅 함수 정의
 @mainBP.route("/")
 def index():
-    return render_template('index.html', name='yunho')
+    return redirect(url_for('question._list'))
 
 # http://localhost:5000/ URL 처리 라우팅 함수 정의
 @mainBP.route("/qlist")
@@ -23,7 +24,6 @@ def printList():
 
 # http://localhost:5000/ URL 처리 라우팅 함수 정의
 @mainBP.route("/qdetail/<int:qid>")
-@mainBP.route("/qdetail/<int:qid>/")
 def questionItem(qid):
     # DB에서 조회한 1개의 question 인스턴스를 전달
     q=Question.query.get(qid)

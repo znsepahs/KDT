@@ -95,9 +95,16 @@
         <label>내용:</label>
         {{question.content}}<br>
     </div>
-
+    <h1>{{question.answer_set|length}}개의 답변이 있습니다.</h1>
     <div>
-        <form>
+        <ul>
+            {% for answer in question.answer_set %}
+                <li>{{ answer.content }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <form action="{{ url_for('question.detail', question_id=question.id) }}" method="POST">
             <textarea rows="5" cols="20" placeholder="답글 입력"></textarea>
             <input type="submit" value="답변 등록">
         </form>

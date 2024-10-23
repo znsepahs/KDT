@@ -32,7 +32,9 @@ def create_app():
     from .models import models
 
     # URL 처리 모듈 등록
-    from .views import main_view
+    from .views import main_view, question_views, answer_views
     APP.register_blueprint(main_view.mainBP)
+    APP.register_blueprint(question_views.mainBP)
+    APP.register_blueprint(answer_views.mainBP)
 
     return APP

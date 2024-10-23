@@ -80,7 +80,7 @@
             {% for question in question_list %}
             <tr>
                 <td> {{question.id}}</td>
-                <td><a href="/qdetail/{{question.id}}/">{{question.subject}}</a></td>
+                <td><a href="{{ url_for('question.detail', question_id=question.id) }}">{{question.subject}}</a></td>
                 <td> {{question.create_date}}</td>
             </tr>
             {% endfor %}
