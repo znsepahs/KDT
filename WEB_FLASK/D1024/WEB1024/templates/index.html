@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA Stock Price Prediction</title>
+    <style>
+        body {
+            background-image: url('../static/index_image.jpg');
+            background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+            color: rgb(198, 182, 36);
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* 배경이 투명한 검정 */
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>NVIDIA Stock Price Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="date">Enter Date (YYYY-MM-DD):</label>
+        <input type="text" id="date" name="date">
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
