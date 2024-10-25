@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+<style>
+    body {
+        background-image: url('../static/result_image.png');
+        background-size: 50%;
+        background-position: center 0%;
+        background-repeat: no-repeat; /* 이미지를 반복하지 않도록 설정 */
+        color: rgb(8, 151, 84);
+        text-align: center;
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 15px;
+        display: inline-block;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 24px;
+    }
+</style>
+
+</head>
+<body>
+    <div class="result">
+        <h1>예측 결과</h1>
+        <p>내일의 가격 예측: ${{ predicted_price }}</p>
+    </div>
+</body>
+</html>

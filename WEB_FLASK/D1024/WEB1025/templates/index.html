@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+            background-image: url('../static/index_image.jpg');
+            background-size: cover; /* 배경 이미지가 화면을 덮도록 설정 */
+            color: rgb(198, 182, 36);
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* 배경이 투명한 검정 */
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Price Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="open">Open Price:</label>
+        <input type="text" id="open" name="open"><br>
+
+        <label for="high">High Price:</label>
+        <input type="text" id="high" name="high"><br>
+
+        <label for="low">Low Price:</label>
+        <input type="text" id="low" name="low"><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
