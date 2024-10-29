@@ -318,7 +318,7 @@ def training(train_DataLoader, test_DataLoader, model, model_type, optimizer,
             best_loss = loss_test_avg
             if SAVE_PATH is not None:
                 torch.save(model.state_dict(), f'{SAVE_PATH}/best_model_epoch_{i}.pth')
-            print(f"[EPOCH] : {i}에서 모델 저장 완료.")
+            print(f"[EPOCH] : [{i}] 모델을 저장합니다.")
 
         else:
             if best_loss > loss_test_avg:  # 손실값이 개선됐을 때
@@ -326,7 +326,7 @@ def training(train_DataLoader, test_DataLoader, model, model_type, optimizer,
                 EARLY_STOP_LOSS_CNT = 0  # 카운트 초기화
                 if SAVE_PATH is not None:
                     torch.save(model.state_dict(), f'{SAVE_PATH}/best_model_epoch_{i}.pth')
-                print(f"[EPOCH] : {i}에서 모델 저장 완료.")
+                print(f"[EPOCH] : [{i}] 모델을 저장합니다.")
             else:  # 손실값이 개선되지 않았을 때
                 EARLY_STOP_LOSS_CNT += 1
 
