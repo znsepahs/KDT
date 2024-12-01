@@ -377,19 +377,19 @@ def predict_value(test_inputDF, model, dim):
 # -----------------------------------------------------------------
 # 누끼 따는 코드
 # -----------------------------------------------------------------
-from rembg import remove
-from PIL import Image
-input_path = './image/apple/Apple_Healthy/FreshApple (1).jpg' # 배경 제거할 이미지 경로
-output_path = './image/apple/Apple_nugied/FreshApple (1).jpg' # 저장할 이미지 경로
+# from rembg import remove
+# from PIL import Image
+# input_path = './image/apple/Apple_Healthy/FreshApple (1).jpg' # 배경 제거할 이미지 경로
+# output_path = './image/apple/Apple_nugied/FreshApple (1).jpg' # 저장할 이미지 경로
 
-img = Image.open(input_path)
-out = remove(img)
+# img = Image.open(input_path)
+# out = remove(img)
 
-# JPEG는 알파 채널을 지원하지 않으므로 RGB로 변환
-if out.mode == 'RGBA':
-    out = out.convert('RGB')
+# # JPEG는 알파 채널을 지원하지 않으므로 RGB로 변환
+# if out.mode == 'RGBA':
+#     out = out.convert('RGB')
 
-out.save(output_path)
+# out.save(output_path)
 
 
 # -----------------------------------------------------------------
