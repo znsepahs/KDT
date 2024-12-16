@@ -8,8 +8,8 @@ from torchvision import models, transforms
 from torchvision.models import VGG19_BN_Weights
 
 import sys
-sys.path.append(r'C:\WorkSpace\KDT\TORCH_IMAGE\MyModule\MyModule')
-from KDTModule import *
+sys.path.append(r'C:\WorkSpace\KDT\MyModule')
+from DLModule import *
 
 
 app = Flask(__name__)
