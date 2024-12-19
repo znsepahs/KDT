@@ -6,8 +6,6 @@ import os
 import time
 import cv2
 import tqdm
-import torch
-import numpy as np
 
 from detectron2.data.detection_utils import read_image
 from detectron2.utils.logger import setup_logger
@@ -43,13 +41,13 @@ def get_parser():
         help="Path to config file",
     )
     parser.add_argument("--webcam", action="store_true", help="Take inputs from webcam.")
-    parser.add_argument("--video-input", help="Path to video file.")
+    parser.add_argument("--video-input", default="./input_videos/yh01.mp4", help="Path to video file.")
     parser.add_argument(
         "--input",
         nargs="+",
-        default=["./input_images/img_17.jpg"],
         help="A list of space-separated input images",
     )
+    
     parser.add_argument(
         "--output",
         default="./results/",
@@ -97,7 +95,7 @@ if __name__ == "__main__":
                     path, len(predictions["instances"]), time.time() - start_time
                 )
             )
-            print(predictions["instances"].get_fields())
+            print(predictions["instances"].polygons)
             
             if args.output:
                 if os.path.isdir(args.output):
@@ -122,16 +120,23 @@ if __name__ == "__main__":
         cv2.destroyAllWindows()
     elif args.video_input:
         video = cv2.VideoCapture(args.video_input)
+        print(video)
         width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
+        print(width)
         height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        print(height)
         frames_per_second = video.get(cv2.CAP_PROP_FPS)
+        print(frames_per_second)
         num_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+        print(num_frames)
         basename = os.path.basename(args.video_input)
+        print(basename)
 
         if args.output:
             if os.path.isdir(args.output):
                 output_fname = os.path.join(args.output, basename)
                 output_fname = os.path.splitext(output_fname)[0] + ".mp4"
+                print(output_fname)
             else:
                 output_fname = args.output
             assert not os.path.isfile(output_fname), output_fname
@@ -145,7 +150,24 @@ if __name__ == "__main__":
                 isColor=True,
             )
         assert os.path.isfile(args.video_input)
-        for vis_frame in tqdm.tqdm(demo.run_on_video(video), total=num_frames):
+        
+        # 비디오 프레임 처리를 위한 커스텀 루프
+        while video.isOpened():
+            ret, frame = video.read()
+            if not ret:
+                break
+
+            # 프레임에 대한 예측 수행
+            start_time = time.time()
+            predictions, visualized_output = demo.run_on_image(frame)
+            
+            logger.info(
+                "Frame processed in {:.2f}s".format(time.time() - start_time)
+            )
+
+            # 결과 시각화
+            vis_frame = visualized_output.get_image()[:, :, ::-1]  # RGB to BGR
+
             if args.output:
                 output_file.write(vis_frame)
             else:
